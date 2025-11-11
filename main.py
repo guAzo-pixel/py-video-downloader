@@ -13,6 +13,9 @@ def get_user_choice(prompt: str, choices: list) -> str:
 
 def download_youtube_material_pure_python():
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print("py-video-downloader v1.0.0")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     print("Audio will be downloaded in M4A/WebM format (high quality), not MP3.")
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
@@ -61,6 +64,7 @@ def download_youtube_material_pure_python():
         print("Task finished.")
         
     except yt_dlp.utils.DownloadError as e:
+
         print(f"\n yt-dlp Download Error: {e}")
     except Exception as e:
         print(f"\nAn unexpected error occurred: {e}")

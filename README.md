@@ -17,11 +17,11 @@ A simple command-line utility for downloading YouTube videos or audio locally, r
 
 1.  Clone the repository:
     ```bash
-    git clone [https://github.com/](https://github.com/)[YOUR_USERNAME]/py-video-downloader.git
+    git clone https://github.com/guAzo-pixel/py-video-downloader.git
     cd py-video-downloader
     ```
 
-2.  (Recommended) Create and activate a virtual environment:
+2.  (Recommended) Create and activate a virtual environment or execute run.bat (Windows) or run.sh (Linux):
     ```bash
     python -m venv venv
     source venv/bin/activate  # On Windows: venv\Scripts\activate
@@ -34,7 +34,8 @@ A simple command-line utility for downloading YouTube videos or audio locally, r
 
 ## Usage
 
-Run the main script from your terminal:
+Run the main script from your terminal or execute run.bat (Windows) or run.sh (Linux):
 
 ```bash
 python main.py
+
