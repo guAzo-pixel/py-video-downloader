@@ -1,10 +1,11 @@
 # py-video-downloader
 
 A simple command-line utility for downloading YouTube videos or audio locally, relying only on Python and `yt_dlp`.
+NEW!!! Now can download playlist.
 
 ## Features
 
-* **Video or Audio:** Choose to download the full video (MP4, max 720p) or audio-only (best available quality).
+* **Video or Audio:** Choose to download the full video or audio-only (best available quality).
 * **Simple Interface:** A straightforward interactive prompt for a URL and format choice.
 * **Organized:** All downloads are saved to a dedicated `material_archivado_youtube` directory.
 
