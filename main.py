@@ -13,7 +13,7 @@ def get_user_choice(prompt: str, choices: list) -> str:
 
 def download_youtube_material_pure_python():
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-    print("py-video-downloader v1.0.0")
+    print("py-video-downloader v1.1.0")
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     print("Audio will be downloaded in M4A/WebM format (high quality), not MP3.")
@@ -25,14 +25,14 @@ def download_youtube_material_pure_python():
         return
 
     choice = get_user_choice("Do you want [v]ideo or [a]udio only?", ['v', 'a'])
+
+    scope_type = get_user_choice("Is this a [s]ingle video or a [p]laylist?", ['s', 'p'])
     
     output_template = os.path.join(DOWNLOAD_PATH, '%(title)s.%(ext)s')
     
     ydl_opts = {
         'format': '',
-        'outtmpl': output_template,
         'cachedir': False,
-        'noplaylist': True,
         'logtostderr': True,
         'noprogress': False,
         'postprocessors': [], 
@@ -47,6 +47,26 @@ def download_youtube_material_pure_python():
         
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     
+    if scope_type == 'p':
+        print("\nMode Playlist: The videos will be saved in a folder with the name of the list.")
+        ydl_opts['noplaylist'] = False
+        ydl_opts['outtmpl'] = os.path.join(
+            DOWNLOAD_PATH,
+            '%(playlist_title)s',
+            '%(playlist_index)s - %(title)s.%(ext)s'
+        )
+    else:
+        print("\nSingle Video Mode: The video will be saved in the 'Single Videos' folder.")
+        ydl_opts['noplaylist'] = True
+        ydl_opts['outtmpl'] = os.path.join(
+            DOWNLOAD_PATH,
+            'Single Videos',
+            '%(title)s.%(ext)s'
+        )
+        
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    
+
     if not os.path.exists(DOWNLOAD_PATH):
         os.makedirs(DOWNLOAD_PATH)
         print(f"Created save directory: {DOWNLOAD_PATH}")
